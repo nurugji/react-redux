@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import store from "../store";
+//+를 했을때 store에 action을 dispatch해야 하므로 store를 import 해줌
 
 export default class AddNumber extends Component {
   state = {
@@ -12,7 +14,7 @@ export default class AddNumber extends Component {
           type="button"
           value="+"
           onClick={() => {
-            this.props.onClick(this.state.size);
+            store.dispatch({ type: "INCREMENT", size: this.state.size });
           }}
         ></input>
         <input
