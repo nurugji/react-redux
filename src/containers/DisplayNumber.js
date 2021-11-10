@@ -1,25 +1,4 @@
-import React, { Component } from "react";
-import store from "../store";
 import DisplayNumber from "../components/DisplayNumber";
+import { connect } from "react-redux";
 
-export default class extends Component {
-  constructor(props) {
-    super(props);
-    store.subscribe(() => {
-      this.setState({
-        number: store.getState().number,
-      });
-    });
-  }
-  state = {
-    number: store.getState().number,
-  };
-  render() {
-    return (
-      <DisplayNumber
-        number={this.state.number}
-        unit={this.props.unit}
-      ></DisplayNumber>
-    );
-  }
-}
+export default connect()(DisplayNumber);
